@@ -50,9 +50,9 @@ var sites = {
 		"Funhaus": "https://www.youtube.com/channel/UCboMX_UNgaPBsUOIgasn3-Q/videos",
 		"Philip DeFranco": "https://www.youtube.com/user/sxephil/videos",
 		"Pyrocynical": "https://www.youtube.com/user/Pyrocynical/videos",
-		"Linus Tech Tips" : "https://www.youtube.com/user/LinusTechTips/videos",
-		"Marques Brownlee" : "https://www.youtube.com/user/marquesbrownlee/videos",
-		"Dave Lee" : "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos"
+		"Linus Tech Tips": "https://www.youtube.com/user/LinusTechTips/videos",
+		"Marques Brownlee": "https://www.youtube.com/user/marquesbrownlee/videos",
+		"Dave Lee": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos"
 	},
 	"Social": {
 		"Reddit": "https://www.reddit.com/",
@@ -67,6 +67,7 @@ var sites = {
 	},
 	"Productivity": {
 		"GMail": "https://mail.google.com/mail/u/0/",
+		"Drive": "https://drive.google.com/drive/u/0/",
 		"Calendar": "https://calendar.google.com",
 		"Keep": "https://keep.google.com",
 		"Amazon": "https://www.amazon.com/",
@@ -142,6 +143,7 @@ function matchLinks(regex = prevregexp) {
 		document.getElementById("action").action = search;
 		document.getElementById("action").children[0].name = query;
 	}
+
 	// SCALE HEIGHT TO MATCH SEARCH RESULTS
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight + "px";
 }
@@ -177,6 +179,38 @@ function displayClock() {
 	document.getElementById("clock").innerHTML = clock;
 }
 
+// Self explanatory, straight from StackOverflow
+function getRandomInt(min, max, prev, range) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	val = Math.floor(Math.random() * (max - min + 1)) + min;
+
+	if (val >= prev - range && val <= prev + range) {
+		return getRandomInt(min, max, prev, range);
+	}
+	return val;
+}
+
+var first = true;
+// Seems like a jank way to do this, change later?
+function changeTransitionTime() {
+	if (first) {
+		document.getElementsByTagName('html')[0].style.setProperty("--transtime", "4000ms");
+		first = false;
+	}
+}
+
+// Cycle hue of color palette
+var prev_hue = 0;
+function cycleColor() {
+	new_hue = getRandomInt(10, 360, prev_hue, 100);
+	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
+	prev_hue = new_hue;
+}
+
 window.onload = matchLinks();
 displayClock();
+cycleColor();
 setInterval(displayClock, 1000);
+setInterval(cycleColor, 4000);
+setInterval(changeTransitionTime, 100);

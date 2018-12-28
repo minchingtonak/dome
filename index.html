@@ -14,6 +14,7 @@
 		:root {
 			--base: 220;
 			--bkg: hsl(var(--base), 20%, 9%);
+			--transtime: 0ms;
 		}
 
 		body>div#main>span>div#static_links {
@@ -46,12 +47,18 @@
 			opacity: 1;
 			z-index: 100;
 			transition: .5s opacity .5s, .5s z-index .5s;
+			-webkit-transition: background-color var(--transtime) linear;
+			-ms-transition: background-color var(--transtime) linear;
+			transition: background-color var(--transtime) linear;
 		}
 
 		html,
 		body {
 			margin: 0;
 			background-color: var(--bkg);
+			-webkit-transition: background-color var(--transtime) linear;
+			-ms-transition: background-color var(--transtime) linear;
+			transition: background-color var(--transtime) linear;
 		}
 	</style>
 
@@ -67,7 +74,7 @@
 				<span id="clock">
 					<!-- dome.js: displayDate() fills this element -->
 				</span>
-				<a href="mailto:">Compose E-Mail</a>
+				<a href="mailto:">Compose E-mail</a>
 				<a href="steam:">Open Steam</a>
 			</div>
 			<form method="GET" id="action">
