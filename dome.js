@@ -60,18 +60,16 @@ var sites = {
 		"GitHub": "https://github.com/",
 		"Last.fm": "https://last.fm/user/Slarrty"
 	},
-	"Boards": {
-		"/v/": "https://boards.4channel.org/v/",
-		"/g/": "https://boards.4channel.org/g/",
-		"/wg/": "https://boards.4chan.org/wg/"
+	"Finance": {
+		"Ally": "https://www.ally.com/",
+		"Amazon": "https://www.amazon.com/",
+		"Fidelity": "https://www.fidelity.com/"
 	},
 	"Productivity": {
 		"GMail": "https://mail.google.com/mail/u/0/",
 		"Drive": "https://drive.google.com/drive/u/0/",
-		"Calendar": "https://calendar.google.com",
 		"Keep": "https://keep.google.com",
-		"Amazon": "https://www.amazon.com/",
-		"Ally": "https://www.ally.com/"
+		"Calendar": "https://calendar.google.com"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 		"CS:GO": "steam://run/730",
@@ -92,7 +90,6 @@ function matchLinks(regex = prevregexp) {
 	pivotmatch = regex == prevregexp ? pivotmatch : 0;
 	prevregexp = regex;
 	pivotbuffer = pivotmatch;
-	console.log(typeof pivotmatch);
 	// CLEAR LINKS FROM PREVIOUS QUERY
 	p = document.getElementById("links");
 	while (p.firstChild) {
@@ -195,7 +192,7 @@ var first = true;
 // Seems like a jank way to do this, change later?
 function changeTransitionTime() {
 	if (first) {
-		document.getElementsByTagName('html')[0].style.setProperty("--transtime", "4000ms");
+		document.getElementsByTagName('html')[0].style.setProperty("--transtime", "7000ms");
 		first = false;
 	}
 }
@@ -203,14 +200,15 @@ function changeTransitionTime() {
 // Cycle hue of color palette
 var prev_hue = 0;
 function cycleColor() {
-	new_hue = getRandomInt(10, 360, prev_hue, 100);
+	new_hue = getRandomInt(10, 360, prev_hue, 150);
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 	prev_hue = new_hue;
+	console.log(prev_hue);
 }
 
 window.onload = matchLinks();
 displayClock();
 cycleColor();
 setInterval(displayClock, 1000);
-setInterval(cycleColor, 4000);
+setInterval(cycleColor, 11000);
 setInterval(changeTransitionTime, 100);
