@@ -69,15 +69,23 @@ var sites = {
 		"Drive": "https://drive.google.com/drive/u/0/",
 		"Keep": "https://keep.google.com",
 		"Calendar": "https://calendar.google.com",
-		"akminch" : "https://mail.google.com/mail/u/2/",
+		"akminch": "https://mail.google.com/mail/u/2/",
 		"alec.minch": "https://mail.google.com/mail/u/0/",
-		"notathrowaway899" : "https://mail.google.com/mail/u/1/"
+		"notathrowaway899": "https://mail.google.com/mail/u/1/"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 		"CS:GO": "steam://run/730",
 		"POSTAL 2": "steam://run/223470"
 	} */
 };
+
+function isValidURL(string) {
+	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+	if (res == null)
+		return false;
+	else
+		return true;
+}
 
 var search = "https://duckduckgo.com/";		// The search engine
 var query = "q";							// The query variable name for the search engine
@@ -138,7 +146,13 @@ function matchLinks(regex = prevregexp) {
 		matches ? p.appendChild(section) : false;
 	}
 	// IF NO MATCHES AT ALL OR BLANK SEARCHBAR, SEARCHBAR SEARCHES ON DUCKDUCKGO
-	if (!gmatches || regex == "") {
+	if (isValidURL(regex) && !regex.match(" ")) {
+		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
+			regex = 'http://' + regex;
+		}
+		document.getElementById("action").action = regex;
+		document.getElementById("action").children[0].name = "";
+	} else if (!gmatches || regex == "") {
 		document.getElementById("action").action = search;
 		document.getElementById("action").children[0].name = query;
 	}
