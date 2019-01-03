@@ -66,10 +66,12 @@ var sites = {
 		"Fidelity": "https://www.fidelity.com/"
 	},
 	"Productivity": {
-		"GMail": "https://mail.google.com/mail/u/0/",
 		"Drive": "https://drive.google.com/drive/u/0/",
 		"Keep": "https://keep.google.com",
-		"Calendar": "https://calendar.google.com"
+		"Calendar": "https://calendar.google.com",
+		"akminch" : "https://mail.google.com/mail/u/2/",
+		"alec.minch": "https://mail.google.com/mail/u/0/",
+		"notathrowaway899" : "https://mail.google.com/mail/u/1/"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 		"CS:GO": "steam://run/730",
