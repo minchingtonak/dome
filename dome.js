@@ -148,7 +148,7 @@ function matchLinks(regex = prevregexp) {
 	// IF NO MATCHES AT ALL OR BLANK SEARCHBAR, SEARCHBAR SEARCHES ON DUCKDUCKGO
 	if (isValidURL(regex) && !regex.match(" ")) {
 		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
-			regex = 'http://' + regex;
+			regex = 'https://' + regex;
 		}
 		document.getElementById("action").action = regex;
 		document.getElementById("action").children[0].name = "";
