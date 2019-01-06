@@ -163,17 +163,12 @@ function matchLinks(regex = prevregexp) {
 
 document.onkeydown = function (e) {
 	// IF UP/DOWN ARROW PRESSED SWITCH SELECTED ACCORDINGLY
-	switch (e.keyCode) {
-		case 38:
-			pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
-			matchLinks();
-			break;
-		case 40:
-			pivotmatch = pivotmatch <= -totallinks + 1 ? -totallinks + 1 : pivotmatch - 1;
-			matchLinks();
-			break;
-		default:
-			break;
+	if (e.keyCode == 37 || e.keyCode == 38) {
+		pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
+		matchLinks();
+	} else if (e.keyCode == 39 || e.keyCode == 40) {
+		pivotmatch = pivotmatch <= -totallinks + 1 ? -totallinks + 1 : pivotmatch - 1;
+		matchLinks();
 	}
 	document.getElementById("action").children[0].focus();
 }
