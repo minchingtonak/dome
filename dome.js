@@ -222,4 +222,4 @@ displayClock();
 cycleColor();
 setInterval(displayClock, 1000);
 setInterval(cycleColor, 11000);
-setInterval(changeTransitionTime, 100);
+setInterval(changeTransitionTime, 5000);
