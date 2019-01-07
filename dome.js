@@ -44,7 +44,8 @@ var sites = {
 		"Piazza": "https://piazza.com/class",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Gradescope": "https://www.gradescope.com/",
-		"EECS 280": "https://eecs280staff.github.io/eecs280.org/"
+		"EECS 280": "https://eecs280staff.github.io/eecs280.org/",
+		"Wolverine Access" : "https://wolverineaccess.umich.edu"
 	},
 	"Channels": {
 		"Funhaus": "https://www.youtube.com/channel/UCboMX_UNgaPBsUOIgasn3-Q/videos",
