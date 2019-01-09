@@ -158,6 +158,17 @@ function matchLinks(regex = prevregexp) {
 		document.getElementById("action").children[0].name = query;
 	}
 
+	if (regex.toLowerCase() == "steam") {
+		document.getElementById("action").action = "steam:";
+		document.getElementById("action").children[0].name = "";
+	} else if (regex.toLowerCase() == "spotify") {
+		document.getElementById("action").action = "spotify:";
+		document.getElementById("action").children[0].name = "";
+	} else if (regex.toLowerCase() == "slack") {
+		document.getElementById("action").action = "slack:";
+		document.getElementById("action").children[0].name = "";
+	}
+
 	// SCALE HEIGHT TO MATCH SEARCH RESULTS
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight + "px";
 }
