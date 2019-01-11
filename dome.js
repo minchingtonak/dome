@@ -35,31 +35,31 @@
 var sites = {
 	"Watch": {
 		"YouTube": "https://www.youtube.com/",
-		"RoosterTeeth FIRST": "https://fun.haus",
 		"Netflix": "https://www.netflix.com/browse",
-		"KissAnime": "https://kissanime.ac/"
+		"KissAnime": "https://kissanime.ac/",
+		"RoosterTeeth FIRST": "https://fun.haus"
 	},
 	"Uni": {
-		"Canvas": "https://umich.instructure.com/login",
 		"Piazza": "https://piazza.com/class",
-		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
-		"Gradescope": "https://www.gradescope.com/",
+		"Canvas": "https://umich.instructure.com/login",
 		"EECS 280": "https://eecs280staff.github.io/eecs280.org/",
+		"Gradescope": "https://www.gradescope.com/",
+		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Wolverine Access" : "https://wolverineaccess.umich.edu"
 	},
 	"Channels": {
+		"Pyro": "https://www.youtube.com/user/Pyrocynical/videos",
 		"Funhaus": "https://www.youtube.com/channel/UCboMX_UNgaPBsUOIgasn3-Q/videos",
+		"Dave Lee": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos",
 		"Philip DeFranco": "https://www.youtube.com/user/sxephil/videos",
-		"Pyrocynical": "https://www.youtube.com/user/Pyrocynical/videos",
 		"Linus Tech Tips": "https://www.youtube.com/user/LinusTechTips/videos",
-		"Marques Brownlee": "https://www.youtube.com/user/marquesbrownlee/videos",
-		"Dave Lee": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos"
+		"Marques Brownlee": "https://www.youtube.com/user/marquesbrownlee/videos"
 	},
 	"Social": {
 		"Reddit": "https://www.reddit.com/",
-		"Twitter": "https://twitter.com/?lang=en",
 		"GitHub": "https://github.com/",
-		"Last.fm": "https://last.fm/user/Slarrty"
+		"Last.fm": "https://last.fm/user/Slarrty",
+		"Twitter": "https://twitter.com/?lang=en"
 	},
 	"Finance": {
 		"Ally": "https://www.ally.com/",
