@@ -88,7 +88,7 @@ function isValidURL(string) {
 		return true;
 }
 
-var search = "https://duckduckgo.com/";		// The search engine
+var search = "https://google.com/search";		// The search engine
 var query = "q";							// The query variable name for the search engine
 
 var pivotmatch = 0;
