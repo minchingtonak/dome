@@ -42,10 +42,12 @@ var sites = {
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
 		"Canvas": "https://umich.instructure.com/login",
+		"EECS 201": "https://csprag.herokuapp.com/schedule",
 		"EECS 280": "https://eecs280staff.github.io/eecs280.org/",
+		"201 Gitlab": "https://gitlab.umich.edu/",
 		"Gradescope": "https://www.gradescope.com/",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
-		"Wolverine Access" : "https://wolverineaccess.umich.edu"
+		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"Channels": {
 		"Pyro": "https://www.youtube.com/user/Pyrocynical/videos",
