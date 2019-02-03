@@ -69,7 +69,7 @@ var sites = {
 		"Fidelity": "https://www.fidelity.com/"
 	},
 	"Productivity": {
-		"Drive": "https://drive.google.com/drive/u/0/",
+		"Drive": "https://drive.google.com/drive/u/2/my-drive",
 		"Keep": "https://keep.google.com",
 		"Calendar": "https://calendar.google.com",
 		"akminch": "https://mail.google.com/mail/u/2/",
