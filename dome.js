@@ -61,7 +61,8 @@ var sites = {
 		"Reddit": "https://www.reddit.com/",
 		"GitHub": "https://github.com/",
 		"Last.fm": "https://last.fm/user/Slarrty",
-		"Twitter": "https://twitter.com/?lang=en"
+		"Twitter": "https://twitter.com/?lang=en",
+		"Messenger": "https://www.messenger.com"
 	},
 	"Finance": {
 		"Ally": "https://www.ally.com/",
