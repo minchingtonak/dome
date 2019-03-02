@@ -42,7 +42,7 @@ var sites = {
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
 		"Canvas": "https://umich.instructure.com/login",
-		"EECS 201": "https://csprag.herokuapp.com/schedule",
+		"EECS 201": "https://cspragmatics.com/",
 		"EECS 280": "https://eecs280staff.github.io/eecs280.org/",
 		"201 Gitlab": "https://gitlab.umich.edu/",
 		"Gradescope": "https://www.gradescope.com/",
