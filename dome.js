@@ -109,7 +109,7 @@ function matchLinks(regex = prevregexp) {
 	while (p.firstChild) {
 		p.removeChild(p.firstChild);
 	}
-	match = new RegExp(regex ? regex : ".", "i");
+	// match = new RegExp(regex ? regex : ".", "i"); // treats search term as regex
 	gmatches = false; // kinda ugly, rethink
 	// FOR EACH CATEGORY OF SITE
 	for (i = 0; i < Object.keys(sites).length; i++) {
@@ -126,7 +126,8 @@ function matchLinks(regex = prevregexp) {
 		for (l = 0; l < Object.keys(sites[sn]).length; l++) {
 			ln = Object.keys(sites[sn])[l]; // ln is the name of each site
 			// IF QUERY MATCHES PART OF SITE NAME
-			if (match.test(ln)) {
+			// if (match.test(ln)) { // treats serach term as regex
+			if (ln.toLowerCase().includes(regex.toLowerCase()) || regex.length == 0) {
 				// CREATE A LINK
 				link = document.createElement("a");
 				link.href = sites[sn][ln];
