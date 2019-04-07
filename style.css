@@ -7,8 +7,6 @@
 
 	--htx: #666;		/* Header Text Color */
 	--txt: #CCC;		/* Text Color */
-
-	--transtime: 0ms;
 }
 
 @font-face {
@@ -56,9 +54,6 @@ body > div#main > span > div#static_links {
 	border: none;
 	width: 908px;
 	height: 30px;
-	-webkit-transition: background-color var(--transtime) linear;
-			-ms-transition: background-color var(--transtime) linear;
-			transition: background-color var(--transtime) linear;
 }
 
 body > div#main > span > div#static_links > span#clock {
@@ -94,9 +89,6 @@ body > div#main > span > form > input {
 	border: none;
 	width: 908px;
 	height: 50px;
-	-webkit-transition: background-color var(--transtime) linear;
-			-ms-transition: background-color var(--transtime) linear;
-			transition: background-color var(--transtime) linear;
 }
 
 body > div#main > span > form > input:focus {
@@ -126,9 +118,6 @@ div#links > div.section {
 	margin: 2px;
 	overflow: hidden;
 	color: var(--htx);
-	-webkit-transition: background-color var(--transtime) linear;
-			-ms-transition: background-color var(--transtime) linear;
-			transition: background-color var(--transtime) linear;
 }
 
 div#links > div.section:before {
@@ -140,9 +129,6 @@ div#links > div.section > div {
 	padding: 15px;
 	background-color: var(--frg);
 	height: 100%;
-	-webkit-transition: background-color var(--transtime) linear;
-			-ms-transition: background-color var(--transtime) linear;
-			transition: background-color var(--transtime) linear;
 }
 
 div#links > div.section > div > a {
@@ -154,17 +140,11 @@ div#links > div.section > div > a {
 div#links > div.section > div > a:hover {
 	background-color: rgba(255,255,255,.05);
 	color: var(--hgl);
-	-webkit-transition: color var(--transtime) linear;
-			-ms-transition: color var(--transtime) linear;
-			transition: color var(--transtime) linear;
 }
 
 div#links > div.section > div > a.selected {
 	background-color: rgba(255,255,255,.05);
 	color: var(--hgl);
-	-webkit-transition: color var(--transtime) linear;
-			-ms-transition: color var(--transtime) linear;
-			transition: color var(--transtime) linear;
 }
 
 div#links > div.section > div > a + a {

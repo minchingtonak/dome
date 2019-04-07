@@ -236,5 +236,5 @@ window.onload = matchLinks();
 displayClock();
 cycleColor();
 setInterval(displayClock, 1000);
-setInterval(cycleColor, 11000);
-setInterval(changeTransitionTime, 5000);
+// setInterval(cycleColor, 11000);
+// setInterval(changeTransitionTime, 5000);
