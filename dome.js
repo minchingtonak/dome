@@ -195,6 +195,24 @@ function displayClock() {
 	document.getElementById("clock").innerHTML = clock;
 }
 
+// Self explanatory, straight from StackOverflow
+function getRandomInt(min, max/*, prev, range */) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	val = Math.floor(Math.random() * (max - min + 1)) + min;
+
+	// if (val >= prev - range && val <= prev + range) {
+	// 	return getRandomInt(min, max, prev, range);
+	// }
+	return val;
+}
+
+// Cycle hue of color palette
+function cycleColor() {
+	new_hue = getRandomInt(10, 360/* , prev_hue, 150 */);
+	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
+}
+
 function isValidURL(string) {
 	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
 	if (res == null)
@@ -205,4 +223,5 @@ function isValidURL(string) {
 
 window.onload = matchLinks();
 displayClock();
+cycleColor();
 setInterval(displayClock, 1000);
