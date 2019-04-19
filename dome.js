@@ -142,7 +142,7 @@ function matchLinks(regex = prevregexp) {
 		// IF ANY MATCHES IN GIVEN CATEGORY, ADD TO PAGE
 		matches ? p.appendChild(section) : false;
 	}
-	// IF NO MATCHES AT ALL OR BLANK SEARCHBAR, SEARCHBAR SEARCHES ON DUCKDUCKGO
+	// IF NO MATCHES AT ALL OR BLANK SEARCHBAR, SEARCHBAR SEARCHES ON SPECIFIED SEARCH ENGINE
 	if (isValidURL(regex) && !regex.match(" ")) {
 		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
 			regex = 'https://' + regex;
