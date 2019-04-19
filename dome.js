@@ -60,6 +60,7 @@ var sites = {
 		"GitHub": "https://github.com/",
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Twitter": "https://twitter.com/?lang=en",
+		"LinkedIn": "https://www.linkedin.com/feed/",
 		"Messenger": "https://www.messenger.com"
 	},
 	"Finance": {
