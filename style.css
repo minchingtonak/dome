@@ -7,6 +7,14 @@
 
 	--htx: #666;		/* Header Text Color */
 	--txt: #CCC;		/* Text Color */
+
+	--max-links: 6;
+	--section-padding: 10px;
+	--link-text-height: 19.2px;
+	--link-margin: 5px;
+	--link-height: calc(var(--link-text-height) + var(--link-margin));
+
+	--section-height: calc( var(--max-links) * var(--link-height) + (3 * var(--section-padding)) + var(--link-margin))
 }
 
 @font-face {
@@ -113,7 +121,7 @@ div#links > div.section {
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
-	height: 235px;
+	height: var(--section-height);
 	width: 300px;
 	margin: 2px;
 	overflow: hidden;
@@ -126,7 +134,7 @@ div#links > div.section:before {
 }
 
 div#links > div.section > div {
-	padding: 15px;
+	padding: var(--section-padding);
 	background-color: var(--frg);
 	height: 100%;
 }
@@ -148,5 +156,5 @@ div#links > div.section > div > a.selected {
 }
 
 div#links > div.section > div > a + a {
-	margin-top: 5px;
+	margin-top: var(--link-margin);
 }
