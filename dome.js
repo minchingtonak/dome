@@ -83,13 +83,6 @@ var sites = {
 	} */
 };
 
-function isValidURL(string) {
-	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-	if (res == null)
-		return false;
-	else
-		return true;
-}
 
 var search = "https://google.com/search";		// The search engine
 var query = "q";							// The query variable name for the search engine
@@ -203,39 +196,14 @@ function displayClock() {
 	document.getElementById("clock").innerHTML = clock;
 }
 
-// Self explanatory, straight from StackOverflow
-function getRandomInt(min, max, prev, range) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	val = Math.floor(Math.random() * (max - min + 1)) + min;
-
-	if (val >= prev - range && val <= prev + range) {
-		return getRandomInt(min, max, prev, range);
-	}
-	return val;
-}
-
-var first = true;
-// Seems like a jank way to do this, change later?
-function changeTransitionTime() {
-	if (first) {
-		document.getElementsByTagName('html')[0].style.setProperty("--transtime", "7000ms");
-		first = false;
-	}
-}
-
-// Cycle hue of color palette
-var prev_hue = 0;
-function cycleColor() {
-	new_hue = getRandomInt(10, 360, prev_hue, 150);
-	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
-	prev_hue = new_hue;
-	console.log(prev_hue);
+function isValidURL(string) {
+	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+	if (res == null)
+		return false;
+	else
+		return true;
 }
 
 window.onload = matchLinks();
 displayClock();
-cycleColor();
 setInterval(displayClock, 1000);
-// setInterval(cycleColor, 11000);
-// setInterval(changeTransitionTime, 5000);
