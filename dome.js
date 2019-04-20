@@ -58,6 +58,7 @@ var sites = {
 	"Social": {
 		"Reddit": "https://www.reddit.com/",
 		"GitHub": "https://github.com/",
+		"GroupMe": "https://web.groupme.com/chats",
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Twitter": "https://twitter.com/?lang=en",
 		"LinkedIn": "https://www.linkedin.com/feed/",
