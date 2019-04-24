@@ -104,53 +104,53 @@ function matchLinks(regex = prevregexp) {
 	pivotmatch = regex == prevregexp ? pivotmatch : 0;
 	prevregexp = regex;
 	pivotbuffer = pivotmatch;
-	// CLEAR LINKS FROM PREVIOUS QUERY
+	// Clear links from previous query
 	p = document.getElementById("links");
 	while (p.firstChild) {
 		p.removeChild(p.firstChild);
 	}
 	// match = new RegExp(regex ? regex : ".", "i"); // treats search term as regex
 	gmatches = false; // kinda ugly, rethink
-	// FOR EACH CATEGORY OF SITE
+	// For each category in sites
 	for (i = 0; i < Object.keys(sites).length; i++) {
 		matches = false;
 		sn = Object.keys(sites)[i]; // sn is the name of each category
-		// CREATE DIV TO FILL
+		// Create div to fill
 		section = document.createElement("div");
 		section.id = sn;
 		section.innerHTML = sn;
 		section.className = "section";
-		// CREATE DIV TO PUT INSIDE FIRST DIV
+		// Create div to put inside first div
 		inner = document.createElement("div");
-		// FOR EACH SITE IN THE GIVEN CATEGORY
+		// For each site in the given category
 		for (l = 0; l < Object.keys(sites[sn]).length; l++) {
 			ln = Object.keys(sites[sn])[l]; // ln is the name of each site
-			// IF QUERY MATCHES PART OF SITE NAME
+			// If query matches part of the site name
 			// if (match.test(ln)) { // treats serach term as regex
 			if (ln.toLowerCase().includes(regex.toLowerCase()) || regex.length == 0) {
-				// CREATE A LINK
+				// Create a link
 				link = document.createElement("a");
 				link.href = sites[sn][ln];
 				link.innerHTML = ln; // link text is name of site
-				// HANDLE UP/DOWN ARROW KEY PRESSES
+				// Handle up/down arrow keypresses
 				if (!pivotbuffer++ && regex != "") {
 					link.className = "selected";
 					document.getElementById("action").action = sites[sn][ln];
 					document.getElementById("action").children[0].removeAttribute("name");
 				}
-				// ADD LINK TO INNER DIV
+				// Add link to inner div
 				inner.appendChild(link);
 				matches = true;
 				gmatches = true;
 				totallinks++;
 			}
 		}
-		// ADD INNER DIV TO OUTER DIV
+		// Add inner div to outer div
 		section.appendChild(inner);
-		// IF ANY MATCHES IN GIVEN CATEGORY, ADD TO PAGE
+		// If any matches in the given category, add to page
 		matches ? p.appendChild(section) : false;
 	}
-	// IF NO MATCHES AT ALL OR BLANK SEARCHBAR, SEARCHBAR SEARCHES ON SPECIFIED SEARCH ENGINE
+	// If no matches at all or blank searchbar, searchbar searches on specified search engine
 	if (isValidURL(regex) && !regex.match(" ")) {
 		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
 			regex = 'https://' + regex;
@@ -162,23 +162,12 @@ function matchLinks(regex = prevregexp) {
 		document.getElementById("action").children[0].name = query;
 	}
 
-	if (regex.toLowerCase() == "steam") {
-		document.getElementById("action").action = "steam:";
-		document.getElementById("action").children[0].name = "";
-	} else if (regex.toLowerCase() == "spotify") {
-		document.getElementById("action").action = "spotify:";
-		document.getElementById("action").children[0].name = "";
-	} else if (regex.toLowerCase() == "slack") {
-		document.getElementById("action").action = "slack:";
-		document.getElementById("action").children[0].name = "";
-	}
-
-	// SCALE HEIGHT TO MATCH SEARCH RESULTS
+	// Scale height to match search results
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight + "px";
 }
 
 document.onkeydown = function (e) {
-	// IF UP/DOWN ARROW PRESSED SWITCH SELECTED ACCORDINGLY
+	// If up/down arrow pressed switch selected acordingly
 	if (e.keyCode == 37 || e.keyCode == 38) {
 		pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
 		matchLinks();
