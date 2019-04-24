@@ -41,46 +41,53 @@ var sites = {
 	},
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
+		"MPrint": "https://mprint.umich.edu/",
 		"Canvas": "https://umich.instructure.com/login",
-		"EECS 280": "https://eecs280staff.github.io/eecs280.org/",
 		"Gradescope": "https://www.gradescope.com/",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
-	"Channels": {
+	"IA": {
+		"280 Drive": "https://drive.google.com/drive/u/2/folders/12880MpOnK-aqKtdZJFsdFLlRq5a0Uy8Z",
+		"OH Queue": "https://lobster.eecs.umich.edu/queue/",
+		"Autograder": "https://autograder.io/web/courses",
+		"280 Website": "https://eecs280staff.github.io/eecs280.org/"
+	},
+	/* "Channels": {
 		"Pyro": "https://www.youtube.com/user/Pyrocynical/videos",
 		"Funhaus": "https://www.youtube.com/channel/UCboMX_UNgaPBsUOIgasn3-Q/videos",
 		"Dave Lee": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos",
 		"Philip DeFranco": "https://www.youtube.com/user/sxephil/videos",
-		"Linus Tech Tips": "https://www.youtube.com/user/LinusTechTips/videos",
 		"Marques Brownlee": "https://www.youtube.com/user/marquesbrownlee/videos"
-	},
+	}, */
 	"Social": {
+		"Slack": "slack:",
 		"Reddit": "https://www.reddit.com/",
 		"GitHub": "https://github.com/",
 		"GroupMe": "https://web.groupme.com/chats",
-		"Last.fm": "https://last.fm/user/Slarrty",
 		"Twitter": "https://twitter.com/?lang=en",
-		"LinkedIn": "https://www.linkedin.com/feed/",
 		"Messenger": "https://www.messenger.com"
 	},
-	"Finance": {
-		"Ally": "https://www.ally.com/",
-		"Amazon": "https://www.amazon.com/",
-		"Fidelity": "https://www.fidelity.com/"
-	},
 	"Productivity": {
-		"Drive": "https://drive.google.com/drive/u/2/my-drive",
 		"Keep": "https://keep.google.com",
+		"Drive": "https://drive.google.com/drive/u/2/my-drive",
 		"Calendar": "https://calendar.google.com",
 		"akminch": "https://mail.google.com/mail/u/2/",
 		"alec.minch": "https://mail.google.com/mail/u/0/",
 		"notathrowaway899": "https://mail.google.com/mail/u/1/"
+	},
+	"Misc": {
+		"Ally": "https://www.ally.com/",
+		"Spotify": "spotify:",
+		"Fidelity": "https://www.fidelity.com/",
+		"Last.fm": "https://last.fm/user/Slarrty",
+		"Amazon": "https://www.amazon.com/",
+		"LinkedIn": "https://www.linkedin.com/feed/"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
-		"CS:GO": "steam://run/730",
-		"POSTAL 2": "steam://run/223470"
-	} */
+	"CS:GO": "steam://run/730",
+	"POSTAL 2": "steam://run/223470"
+} */
 };
 
 
