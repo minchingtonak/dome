@@ -48,18 +48,11 @@ var sites = {
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"IA": {
-		"280 Drive": "https://drive.google.com/drive/u/2/folders/12880MpOnK-aqKtdZJFsdFLlRq5a0Uy8Z",
+		"280 Drive": "https://drive.google.com/drive/u/2/folders/1BXVRTCsy8Em4N_4NKP67G82yTr6EFCAE",
 		"OH Queue": "https://lobster.eecs.umich.edu/queue/",
 		"Autograder": "https://autograder.io/web/courses",
 		"280 Website": "https://eecs280staff.github.io/eecs280.org/"
 	},
-	/* "Channels": {
-		"Pyro": "https://www.youtube.com/user/Pyrocynical/videos",
-		"Funhaus": "https://www.youtube.com/channel/UCboMX_UNgaPBsUOIgasn3-Q/videos",
-		"Dave Lee": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw/videos",
-		"Philip DeFranco": "https://www.youtube.com/user/sxephil/videos",
-		"Marques Brownlee": "https://www.youtube.com/user/marquesbrownlee/videos"
-	}, */
 	"Social": {
 		"Slack": "slack:",
 		"Reddit": "https://www.reddit.com/",
