@@ -48,6 +48,7 @@ var sites = {
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"IA": {
+		"MPrint": "https://mprint.umich.edu/",
 		"280 Drive": "https://drive.google.com/drive/u/2/folders/1BXVRTCsy8Em4N_4NKP67G82yTr6EFCAE",
 		"OH Queue": "https://lobster.eecs.umich.edu/queue/",
 		"Autograder": "https://autograder.io/web/courses",
