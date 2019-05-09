@@ -41,8 +41,8 @@ var sites = {
 	},
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
-		"MPrint": "https://mprint.umich.edu/",
 		"Canvas": "https://umich.instructure.com/login",
+		"EECS 370": "http://www.eecs.umich.edu/courses/eecs370/eecs370.s19/",
 		"Gradescope": "https://www.gradescope.com/",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
