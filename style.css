@@ -134,7 +134,6 @@ div#links > div.section:before {
 }
 
 div#links > div.section > div {
-	padding: var(--section-padding);
 	background-color: var(--frg);
 	height: 100%;
 }
