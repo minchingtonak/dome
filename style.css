@@ -14,7 +14,7 @@
 	--link-margin: 5px;
 	--link-height: calc(var(--link-text-height) + var(--link-margin));
 
-	--section-height: calc( var(--max-links) * var(--link-height) + (3 * var(--section-padding)) + (2 *var(--link-margin)))
+	--section-height: calc( calc(var(--max-links) + 1) * var(--link-height) + var(--section-padding))
 }
 
 @font-face {
