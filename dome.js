@@ -34,8 +34,8 @@
 // div.innerHTML : {a.innerHTML : a.href}
 var sites = {
 	"Watch": {
-		"YouTube": "https://www.youtube.com/",
 		"Netflix": "https://www.netflix.com/browse",
+		"YouTube": "https://www.youtube.com/",
 		"KissAnime": "https://kissanime.ac/",
 		"RoosterTeeth FIRST": "https://fun.haus"
 	},
@@ -57,9 +57,9 @@ var sites = {
 	"Social": {
 		"Slack": "slack:",
 		"Reddit": "https://www.reddit.com/",
+		"Twitter": "https://twitter.com/?lang=en",
 		"GitHub": "https://github.com/",
 		"GroupMe": "https://web.groupme.com/chats",
-		"Twitter": "https://twitter.com/?lang=en",
 		"Messenger": "https://www.messenger.com"
 	},
 	"Productivity": {
@@ -68,7 +68,7 @@ var sites = {
 		"Calendar": "https://calendar.google.com",
 		"akminch": "https://mail.google.com/mail/u/2/",
 		"alec.minch": "https://mail.google.com/mail/u/0/",
-		"notathrowaway899": "https://mail.google.com/mail/u/1/"
+		"notathrowaway": "https://mail.google.com/mail/u/1/"
 	},
 	"Misc": {
 		"Ally": "https://www.ally.com/",
