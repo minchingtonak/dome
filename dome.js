@@ -89,13 +89,13 @@ var query = "q";							    // The query variable name for the search engine
 
 var pivotmatch = 0;
 var totallinks = 0;
-var prevregexp = "";
+var prevregex = "";
 
 // ---------- BUILD PAGE ----------
-function matchLinks(regex = prevregexp) {
+function matchLinks(regex = prevregex) {
 	totallinks = 0;
-	pivotmatch = regex == prevregexp ? pivotmatch : 0;
-	prevregexp = regex;
+	pivotmatch = regex == prevregex ? pivotmatch : 0;
+	prevregex = regex;
 	pivotbuffer = pivotmatch;
 	// Clear links from previous query
 	p = document.getElementById("links");
