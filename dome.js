@@ -35,6 +35,7 @@
 var sites = {
 	"Watch": {
 		"Netflix": "https://www.netflix.com/browse",
+		"Twitch": "https://www.twitch.tv",
 		"YouTube": "https://www.youtube.com/",
 		"KissAnime": "https://kissanime.ac/",
 		"RoosterTeeth FIRST": "https://fun.haus"
