@@ -36,8 +36,8 @@ var sites = {
 	"Watch": {
 		"Netflix": "https://www.netflix.com/browse",
 		"Twitch": "https://www.twitch.tv",
-		"YouTube": "https://www.youtube.com/",
 		"9Anime": "https://9anime.to/user/watchlist",
+		"YouTube": "https://www.youtube.com/",
 		"RoosterTeeth FIRST": "https://fun.haus"
 	},
 	"Uni": {
