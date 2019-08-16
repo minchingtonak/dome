@@ -37,7 +37,7 @@ var sites = {
 		"Netflix": "https://www.netflix.com/browse",
 		"Twitch": "https://www.twitch.tv",
 		"YouTube": "https://www.youtube.com/",
-		"KissAnime": "https://kissanime.ac/",
+		"9Anime": "https://9anime.to/user/watchlist",
 		"RoosterTeeth FIRST": "https://fun.haus"
 	},
 	"Uni": {
