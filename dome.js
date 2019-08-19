@@ -43,6 +43,7 @@ var sites = {
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
 		"Canvas": "https://umich.instructure.com/login",
+		"EECS 490": "https://eecs490.github.io/eecs490.org/",
 		"Gradescope": "https://www.gradescope.com/",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
