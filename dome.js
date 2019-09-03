@@ -50,8 +50,8 @@ var sites = {
 	},
 	"IA": {
 		"MPrint": "https://mprint.umich.edu/",
-		"280 Drive": "https://drive.google.com/drive/u/2/folders/1BXVRTCsy8Em4N_4NKP67G82yTr6EFCAE",
 		"OH Queue": "https://lobster.eecs.umich.edu/eecsoh/",
+		"Drive (280)": "https://drive.google.com/drive/u/2/folders/1GGAW8K_gNAOUuE7qrEyVIcd14CBn2c-n",
 		"Autograder": "https://autograder.io/web/courses",
 		"eecs280.org": "https://eecs280staff.github.io/eecs280.org/"
 	},
