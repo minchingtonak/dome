@@ -38,14 +38,14 @@ var sites = {
 		"Twitch": "https://www.twitch.tv",
 		"9Anime": "https://9anime.to/user/watchlist",
 		"YouTube": "https://www.youtube.com/",
-		"RoosterTeeth FIRST": "https://fun.haus"
+		"RT FIRST": "https://fun.haus"
 	},
 	"Uni": {
 		"Piazza": "https://piazza.com/class",
 		"Canvas": "https://umich.instructure.com/login",
-		"EECS 490": "https://eecs490.github.io/eecs490.org/",
-		"Gradescope": "https://www.gradescope.com/",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
+		"Gradescope": "https://www.gradescope.com/",
+		"eecs490.org": "https://eecs490.github.io/eecs490.org/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"IA": {
@@ -53,7 +53,7 @@ var sites = {
 		"280 Drive": "https://drive.google.com/drive/u/2/folders/1BXVRTCsy8Em4N_4NKP67G82yTr6EFCAE",
 		"OH Queue": "https://lobster.eecs.umich.edu/eecsoh/",
 		"Autograder": "https://autograder.io/web/courses",
-		"280 Website": "https://eecs280staff.github.io/eecs280.org/"
+		"eecs280.org": "https://eecs280staff.github.io/eecs280.org/"
 	},
 	"Social": {
 		"Slack": "slack:",
