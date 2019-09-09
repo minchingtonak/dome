@@ -41,14 +41,15 @@ var sites = {
 		"RT FIRST": "https://fun.haus"
 	},
 	"Uni": {
-		"Piazza": "https://piazza.com/class",
 		"Canvas": "https://umich.instructure.com/login",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Gradescope": "https://www.gradescope.com/",
+		"eecs388.org": "https://www.eecs.umich.edu/courses/eecs388/",
 		"eecs490.org": "https://eecs490.github.io/eecs490.org/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"IA": {
+		"Piazza": "https://piazza.com/class",
 		"MPrint": "https://mprint.umich.edu/",
 		"OH Queue": "https://lobster.eecs.umich.edu/eecsoh/",
 		"Drive (280)": "https://drive.google.com/drive/u/2/folders/1GGAW8K_gNAOUuE7qrEyVIcd14CBn2c-n",
@@ -73,11 +74,11 @@ var sites = {
 	},
 	"Misc": {
 		"Ally": "https://www.ally.com/",
-		"Spotify": "spotify:",
 		"Fidelity": "https://www.fidelity.com/",
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Amazon": "https://www.amazon.com/",
-		"LinkedIn": "https://www.linkedin.com/feed/"
+		"MAAV Wiki": "https://sites.google.com/umich.edu/maav/home?authuser=2",
+		"MAAV Redmine": "https://tasks.maavumich.org/projects/softwareiarceight"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 	"CS:GO": "steam://run/730",
