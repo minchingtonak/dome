@@ -78,7 +78,7 @@ var sites = {
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Amazon": "https://www.amazon.com/",
 		"MAAV Wiki": "https://sites.google.com/umich.edu/maav/home?authuser=2",
-		"MAAV Redmine": "https://tasks.maavumich.org/projects/softwareiarceight"
+		"MAAV Redmine": "https://tasks.maavumich.org/projects/software-iarc9"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 	"CS:GO": "steam://run/730",
