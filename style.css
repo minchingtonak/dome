@@ -28,15 +28,36 @@ html, body {
 	overflow-x: hidden;
 }
 
-a#corner-link {
-	text-decoration: none;
-	color: var(--htx);
+.left-corner {
+	position: absolute;
+	bottom: 3px;
+	left: 15px;
+}
+
+.right-corner {
 	position: absolute;
 	bottom: 10px;
 	right: 15px;
 }
 
-a#corner-link:hover {
+.static-link {
+	text-decoration: none;
+	color: var(--htx);
+}
+
+.static-link:hover {
+	color: var(--txt);
+}
+
+.static-link svg {
+	width: 1.3em;
+	height: 1.3em;
+	color: rgb(88, 88, 88);
+}
+
+.static-link svg:hover {
+	width: 1.3em;
+	height: 1.3em;
 	color: var(--txt);
 }
 
