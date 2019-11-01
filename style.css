@@ -28,6 +28,18 @@ html, body {
 	overflow-x: hidden;
 }
 
+a#corner-link {
+	text-decoration: none;
+	color: var(--htx);
+	position: absolute;
+	bottom: 10px;
+	right: 15px;
+}
+
+a#corner-link:hover {
+	color: var(--txt);
+}
+
 div#wiper {
 	opacity: 0 !important;
 	z-index: -1 !important;
