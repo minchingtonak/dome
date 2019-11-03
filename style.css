@@ -26,36 +26,44 @@
 html, body {
 	font-family: Montserrat;
 	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
 }
 
 .left-corner {
 	position: absolute;
-	bottom: 3px;
-	left: 15px;
+	top: 5px;
+	left: 13px;
 }
 
 .right-corner {
 	position: absolute;
-	bottom: 10px;
+	top: 5px;
 	right: 15px;
 }
 
-.static-link {
+div#bottom-link-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.bottom-link {
 	text-decoration: none;
+	padding: 0.25em 0em;
 	color: var(--htx);
 }
 
-.static-link:hover {
+.bottom-link:hover {
 	color: var(--txt);
 }
 
-.static-link svg {
+.bottom-link svg {
 	width: 1.3em;
 	height: 1.3em;
 	color: rgb(88, 88, 88);
 }
 
-.static-link svg:hover {
+.bottom-link svg:hover {
 	width: 1.3em;
 	height: 1.3em;
 	color: var(--txt);
@@ -81,7 +89,7 @@ body > div#main {
 	transition: .2s height;
 }
 
-body > div#main > span > div#static_links {
+body > div#main > span > div#static-links {
 	font-family: Terminus, Montserrat;
 	background-color: var(--hdr);
 	margin: 2px 2px 0px 2px;
@@ -97,25 +105,25 @@ body > div#main > span > div#static_links {
 	height: 30px;
 }
 
-body > div#main > span > div#static_links > span#clock {
+body > div#main > span > div#static-links > span#clock {
 	margin-right: 15px;
 }
 
-body > div#main > span > div#static_links > span:first-of-type {
+body > div#main > span > div#static-links > span:first-of-type {
 	color: var(--htx);
 	float: left;
 }
 
-body > div#main > span > div#static_links > a {
+body > div#main > span > div#static-links > a {
 	text-decoration: none;
 	color: var(--htx);
 }
 
-body > div#main > span > div#static_links > a:hover {
+body > div#main > span > div#static-links > a:hover {
 	color: white;
 }
 
-body > div#main > span > div#static_links > a + a {
+body > div#main > span > div#static-links > a + a {
 	margin-left: 15px;
 }
 
@@ -137,13 +145,13 @@ body > div#main > span > form > input:focus {
 }
 
 @media screen and (max-width: 912px) {
-	body > div#main > span > form > input, body > div#main > span > div#static_links {
+	body > div#main > span > form > input, body > div#main > span > div#static-links {
 		width: 604px;
 	}
 }
 
 @media screen and (max-width: 608px) {
-	body > div#main > span > form > input, body > div#main > span > div#static_links {
+	body > div#main > span > form > input, body > div#main > span > div#static-links {
 		width: 300px;
 	}
 }
