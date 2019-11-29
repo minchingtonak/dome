@@ -47,26 +47,40 @@ div#bottom-link-wrapper {
 	width: 100%;
 }
 
-.bottom-link {
+.top-link {
 	text-decoration: none;
 	padding: 0.25em 0em;
 	color: var(--htx);
 }
 
-.bottom-link:hover {
+.top-link:hover {
 	color: var(--txt);
 }
 
-.bottom-link svg {
+.top-link svg {
 	width: 1.3em;
 	height: 1.3em;
 	color: rgb(88, 88, 88);
 }
 
-.bottom-link svg:hover {
+.top-link svg:hover {
 	width: 1.3em;
 	height: 1.3em;
 	color: var(--txt);
+}
+
+@media only screen and (max-width: 1175px) {
+	.top-link {
+		font-size: 13px;
+	}
+
+	.left-corner {
+		top: 2px;
+	}
+	
+	.right-corner {
+		top: 2px;
+	}
 }
 
 div#wiper {
