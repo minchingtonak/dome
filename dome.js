@@ -48,8 +48,8 @@ var sites = {
 		"Piazza": "https://piazza.com/class",
 		"MPrint": "https://mprint.umich.edu/",
 		"OH Queue": "https://lobster.eecs.umich.edu/eecsoh/",
-		"Drive (280)": "https://drive.google.com/drive/u/2/folders/1GGAW8K_gNAOUuE7qrEyVIcd14CBn2c-n",
-		"Autograder": "https://autograder.io/web/courses",
+		"Drive (280)": "https://drive.google.com/drive/u/2/folders/1_AXJpe9W2qovqr68-KjcnyYMjukmykK5",
+		"Autograder": "https://autograder.io",
 		"eecs280.org": "https://eecs280staff.github.io/eecs280.org/"
 	},
 	"Social": {
