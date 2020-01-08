@@ -36,16 +36,12 @@ var sites = {
 	"Watch": {
 		"Netflix": "https://www.netflix.com/browse",
 		"Twitch": "https://www.twitch.tv",
-		"9Anime": "https://9anime.to/user/watchlist",
 		"YouTube": "https://www.youtube.com/",
-		"RT FIRST": "https://fun.haus"
 	},
 	"Uni": {
 		"Canvas": "https://umich.instructure.com/login",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
 		"Gradescope": "https://www.gradescope.com/",
-		"eecs388.org": "https://www.eecs.umich.edu/courses/eecs388/",
-		"eecs490.org": "https://eecs490.github.io/eecs490.org/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
 	"IA": {
@@ -77,8 +73,6 @@ var sites = {
 		"Fidelity": "https://www.fidelity.com/",
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Amazon": "https://www.amazon.com/",
-		"MAAV Wiki": "https://sites.google.com/umich.edu/maav/home?authuser=2",
-		"MAAV Redmine": "https://tasks.maavumich.org/projects/software-iarc9"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 	"CS:GO": "steam://run/730",
