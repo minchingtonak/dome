@@ -34,6 +34,7 @@
 // div.innerHTML : {a.innerHTML : a.href}
 var sites = {
 	"Watch": {
+		"Plex": "https://app.plex.tv/desktop",
 		"Netflix": "https://www.netflix.com/browse",
 		"Twitch": "https://www.twitch.tv",
 		"YouTube": "https://www.youtube.com/",
@@ -73,6 +74,7 @@ var sites = {
 		"Fidelity": "https://www.fidelity.com/",
 		"Last.fm": "https://last.fm/user/Slarrty",
 		"Amazon": "https://www.amazon.com/",
+		"rateyourmusic": "https://rateyourmusic.com/"
 	}
 	/* "Games": { // To find the game ID check the url in the store page or the community page
 	"CS:GO": "steam://run/730",
