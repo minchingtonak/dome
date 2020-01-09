@@ -56,7 +56,6 @@ var sites = {
 		"eecs280.org": "https://eecs280staff.github.io/eecs280.org/"
 	},
 	"Social": {
-		"Slack": "slack:",
 		"Reddit": "https://www.reddit.com/",
 		"Twitter": "https://twitter.com/?lang=en",
 		"GitHub": "https://github.com/",
