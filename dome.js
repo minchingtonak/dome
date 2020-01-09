@@ -42,6 +42,8 @@ var sites = {
 	"Uni": {
 		"Canvas": "https://umich.instructure.com/login",
 		"EECS Gitlab": "https://gitlab.eecs.umich.edu/",
+		"eecs483.org": "https://piazza.com/umich/winter2020/eecs483/resources",
+		"eecs485.org": "https://eecs485staff.github.io/eecs485.org/",
 		"Gradescope": "https://www.gradescope.com/",
 		"Wolverine Access": "https://wolverineaccess.umich.edu"
 	},
