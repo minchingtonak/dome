@@ -203,20 +203,16 @@ function cycleColor() {
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 }
 
-// Match IP addresses + port with leading zeroes: (\d{1,3}\.){3}(\d{1,2})(:(\d{1,5}))?
-// Match IP addresses + port without leading zeroes: ((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))(:(([1-9]\d{0,4})|0))?
-var port_path = "(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)";
-
 function isLocalhost(string) {
-	return string.match(new RegExp("localhost" + port_path)) != null;
+	return string.match(/localhost(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)/) != null;
 }
 
 function isValidIP(string) {
-	return string.match(new RegExp("((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))" + port_path)) != null;
+	return string.match(/((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)/) != null;
 }
 
 function isValidURL(string) {
-	return string.match(new RegExp("(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)")) != null;
+	return string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/) != null;
 }
 
 window.onload = matchLinks();
