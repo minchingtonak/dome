@@ -26,8 +26,6 @@
  */
 
 // "Thus, programs must be written for people to read, and only incidentally for machines to execute."
-// TODO: Commenting.
-
 
 // ---------- CONFIGURATION ----------
 
@@ -89,13 +87,13 @@ var query = "q"; // The query variable name for the search engine
 
 var pivotmatch = 0;
 var totallinks = 0;
-var prevregex = "";
+var prevsearchterm = "";
 
 // ---------- BUILD PAGE ----------
-function matchLinks(regex = prevregex) {
+function matchLinks(searchterm = prevsearchterm) {
 	totallinks = 0;
-	pivotmatch = regex == prevregex ? pivotmatch : 0;
-	prevregex = regex;
+	pivotmatch = searchterm == prevsearchterm ? pivotmatch : 0;
+	prevsearchterm = searchterm;
 	pivotbuffer = pivotmatch;
 	// Clear links from previous query
 	p = document.getElementById("links");
@@ -120,13 +118,13 @@ function matchLinks(regex = prevregex) {
 			ln = Object.keys(sites[sn])[l]; // ln is the name of each site
 			// If query matches part of the site name
 			// if (match.test(ln)) { // treats serach term as regex
-			if (ln.toLowerCase().includes(regex.toLowerCase()) || regex.length == 0) {
+			if (ln.toLowerCase().includes(searchterm.toLowerCase()) || searchterm.length == 0) {
 				// Create a link
 				link = document.createElement("a");
 				link.href = sites[sn][ln];
 				link.innerHTML = ln; // link text is name of site
 				// Handle up/down arrow keypresses
-				if (!pivotbuffer++ && regex != "") {
+				if (!pivotbuffer++ && searchterm != "") {
 					link.className = "selected";
 					document.getElementById("action").action = sites[sn][ln];
 					document.getElementById("action").children[0].removeAttribute("name");
@@ -143,16 +141,16 @@ function matchLinks(regex = prevregex) {
 		// If any matches in the given category, add to page
 		matches ? p.appendChild(section) : false;
 	}
-	if (regex.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
-		document.getElementById("action").action = "http://localhost:" + regex.match(/\d{1,5}/)[0];
+	if (searchterm.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
+		document.getElementById("action").action = "http://localhost:" + searchterm.match(/\d{1,5}/)[0];
 		document.getElementById("action").children[0].name = "";
-	} else if (!regex.includes(' ') && (validurl = isValidURL(regex) || (validlh = isLocalhost(regex)) || (validip = isValidIP(regex)))) { // If URL, Ip address, or localhost, go to the specified address
-		if (!regex.match(/http(s)?:\/\//)) {
-			regex = 'http' + (!(validlh || validip) ? 's' : '') + "://" + regex;
+	} else if (!searchterm.includes(' ') && (validurl = isValidURL(searchterm) || (validlh = isLocalhost(searchterm)) || (validip = isValidIP(searchterm)))) { // If URL, Ip address, or localhost, go to the specified address
+		if (!searchterm.match(/http(s)?:\/\//)) {
+			searchterm = 'http' + (!(validlh || validip) ? 's' : '') + "://" + searchterm;
 		}
-		document.getElementById("action").action = regex;
+		document.getElementById("action").action = searchterm;
 		document.getElementById("action").children[0].name = "";
-	} else if (!gmatches || regex == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
+	} else if (!gmatches || searchterm == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
 		document.getElementById("action").action = search;
 		document.getElementById("action").children[0].name = query;
 	}
