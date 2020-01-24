@@ -146,17 +146,9 @@ function matchLinks(regex = prevregex) {
 	if (regex.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
 		document.getElementById("action").action = "http://localhost:" + regex.match(/\d{1,5}/)[0];
 		document.getElementById("action").children[0].name = "";
-	} else if (!regex.includes(' ')) { // If URL, Ip address, or localhost, go to the specified address
-		replace_https = true;
-		match = false;
-		if (isValidURL(regex)) {
-			match = true;
-		} else if (isLocalhost(regex) || isValidIP(regex)) {
-			replace_https = false;
-			match = true;
-		}
-		if (match && !regex.match(/http(s)?:\/\//g)) {
-			regex = 'http' + (replace_https ? 's' : '') + '://' + regex;
+	} else if (!regex.includes(' ') && (validurl = isValidURL(regex) || (validlh = isLocalhost(regex)) || (validip = isValidIP(regex)))) { // If URL, Ip address, or localhost, go to the specified address
+		if (!regex.match(/http(s)?:\/\//)) {
+			regex = 'http' + (!(validlh || validip) ? 's' : '') + "://" + regex;
 		}
 		document.getElementById("action").action = regex;
 		document.getElementById("action").children[0].name = "";
