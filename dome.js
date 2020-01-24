@@ -82,7 +82,7 @@ var sites = {
 };
 
 
-var search = "https://google.com/search"; // The search engine
+var searchengine = "https://google.com/search"; // The search engine
 var query = "q"; // The query variable name for the search engine
 
 var pivotmatch = 0;
@@ -96,31 +96,31 @@ function matchLinks(searchterm = prevsearchterm) {
 	prevsearchterm = searchterm;
 	pivotbuffer = pivotmatch;
 	// Clear links from previous query
-	p = document.getElementById("links");
+	var p = document.getElementById("links");
 	while (p.firstChild) {
 		p.removeChild(p.firstChild);
 	}
 	// match = new RegExp(regex ? regex : ".", "i"); // treats search term as regex
-	gmatches = false; // kinda ugly, rethink
+	var gmatches = false; // kinda ugly, rethink
 	// For each category in sites
 	for (i = 0; i < Object.keys(sites).length; i++) {
-		matches = false;
-		sn = Object.keys(sites)[i]; // sn is the name of each category
+		var matches = false;
+		var sn = Object.keys(sites)[i]; // sn is the name of each category
 		// Create div to fill
-		section = document.createElement("div");
+		var section = document.createElement("div");
 		section.id = sn;
 		section.innerHTML = sn;
 		section.className = "section";
 		// Create div to put inside first div
-		inner = document.createElement("div");
+		var inner = document.createElement("div");
 		// For each site in the given category
 		for (l = 0; l < Object.keys(sites[sn]).length; l++) {
-			ln = Object.keys(sites[sn])[l]; // ln is the name of each site
+			var ln = Object.keys(sites[sn])[l]; // ln is the name of each site
 			// If query matches part of the site name
 			// if (match.test(ln)) { // treats serach term as regex
 			if (ln.toLowerCase().includes(searchterm.toLowerCase()) || searchterm.length == 0) {
 				// Create a link
-				link = document.createElement("a");
+				var link = document.createElement("a");
 				link.href = sites[sn][ln];
 				link.innerHTML = ln; // link text is name of site
 				// Handle up/down arrow keypresses
@@ -141,26 +141,29 @@ function matchLinks(searchterm = prevsearchterm) {
 		// If any matches in the given category, add to page
 		matches ? p.appendChild(section) : false;
 	}
+	var validurl, validlh, validip;
 	if (searchterm.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
-		document.getElementById("action").action = "http://localhost:" + searchterm.match(/\d{1,5}/)[0];
-		document.getElementById("action").children[0].name = "";
-	} else if (!searchterm.includes(' ') && (validurl = isValidURL(searchterm) || (validlh = isLocalhost(searchterm)) || (validip = isValidIP(searchterm)))) { // If URL, Ip address, or localhost, go to the specified address
+		setDest("http://localhost:" + searchterm.match(/\d{1,5}/)[0]);
+	} else if (!searchterm.includes(' ') && ((validurl = isValidURL(searchterm)) || (validlh = isLocalhost(searchterm)) || (validip = isValidIP(searchterm)))) { // If URL, Ip address, or localhost, go to the specified address
 		if (!searchterm.match(/http(s)?:\/\//)) {
-			searchterm = 'http' + (!(validlh || validip) ? 's' : '') + "://" + searchterm;
+			searchterm = 'http' + ((validlh || validip) ? '' : 's') + "://" + searchterm;
 		}
-		document.getElementById("action").action = searchterm;
-		document.getElementById("action").children[0].name = "";
+		setDest(searchterm);
 	} else if (!gmatches || searchterm == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
-		document.getElementById("action").action = search;
-		document.getElementById("action").children[0].name = query;
+		setDest(searchengine, query);
 	}
 
 	// Scale height to match search results
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight + "px";
 }
 
+function setDest(dest, queryvar = "") {
+	document.getElementById("action").action = dest;
+	document.getElementById("action").children[0].name = queryvar;
+}
+
 document.onkeydown = function (e) {
-	// If up/down arrow pressed switch selected acordingly
+	// If up/down arrow pressed switch selected accordingly
 	if (e.keyCode == 37 || e.keyCode == 38) {
 		pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
 		matchLinks();
@@ -178,8 +181,8 @@ document.getElementById("action").children[0].onkeypress = function (e) {
 }
 
 function displayClock() {
-	now = new Date();
-	clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":" +
+	var now = new Date();
+	var clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":" +
 		(now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":" +
 		(now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
 	document.getElementById("clock").innerHTML = clock;
@@ -189,7 +192,7 @@ function displayClock() {
 function getRandomInt(min, max /*, prev, range */ ) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
-	val = Math.floor(Math.random() * (max - min + 1)) + min;
+	var val = Math.floor(Math.random() * (max - min + 1)) + min;
 
 	// if (val >= prev - range && val <= prev + range) {
 	// 	return getRandomInt(min, max, prev, range);
@@ -199,7 +202,7 @@ function getRandomInt(min, max /*, prev, range */ ) {
 
 // Cycle hue of color palette
 function cycleColor() {
-	new_hue = getRandomInt(10, 360 /* , prev_hue, 150 */ );
+	var new_hue = getRandomInt(10, 360 /* , prev_hue, 150 */ );
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 }
 
