@@ -3,7 +3,7 @@ set -Eeuxo pipefail
 
 OUTPUT=minified
 mkdir -p -v $OUTPUT/font
-cp font/* $OUTPUT/font
+cp font/*.otf $OUTPUT/font
 
 uglifyjs dome.js > $OUTPUT/dome.js
 csso style.css > $OUTPUT/style.css
