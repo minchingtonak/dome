@@ -143,14 +143,24 @@ function matchLinks(regex = prevregex) {
 		// If any matches in the given category, add to page
 		matches ? p.appendChild(section) : false;
 	}
-	// If no matches at all or blank searchbar, searchbar searches on specified search engine
-	if (isValidURL(regex) && !regex.match(" ")) {
-		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
-			regex = 'https://' + regex;
+	if (regex.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
+		document.getElementById("action").action = "http://localhost:" + regex.match(/\d{1,5}/)[0];
+		document.getElementById("action").children[0].name = "";
+	} else if (!regex.includes(' ')) { // If URL, Ip address, or localhost, go to the specified address
+		replace_https = true;
+		match = false;
+		if (isValidURL(regex)) {
+			match = true;
+		} else if (isLocalhost(regex) || isValidIP(regex)) {
+			replace_https = false;
+			match = true;
+		}
+		if (match && !regex.match(/http(s)?:\/\//g)) {
+			regex = 'http' + (replace_https ? 's' : '') + '://' + regex;
 		}
 		document.getElementById("action").action = regex;
 		document.getElementById("action").children[0].name = "";
-	} else if (!gmatches || regex == "") {
+	} else if (!gmatches || regex == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
 		document.getElementById("action").action = search;
 		document.getElementById("action").children[0].name = query;
 	}
@@ -203,9 +213,20 @@ function cycleColor() {
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 }
 
+// Match IP addresses + port with leading zeroes: (\d{1,3}\.){3}(\d{1,2})(:(\d{1,5}))?
+// Match IP addresses + port without leading zeroes: ((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))(:(([1-9]\d{0,4})|0))?
+var port_path = "(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)";
+
+function isLocalhost(string) {
+	return string.match(new RegExp("localhost" + port_path)) != null;
+}
+
+function isValidIP(string) {
+	return string.match(new RegExp("((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))" + port_path)) != null;
+}
+
 function isValidURL(string) {
-	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-	return res != null;
+	return string.match(new RegExp("(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)")) != null;
 }
 
 window.onload = matchLinks();
