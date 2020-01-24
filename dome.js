@@ -84,8 +84,8 @@ var sites = {
 };
 
 
-var search = "https://google.com/search";		// The search engine
-var query = "q";							    // The query variable name for the search engine
+var search = "https://google.com/search"; // The search engine
+var query = "q"; // The query variable name for the search engine
 
 var pivotmatch = 0;
 var totallinks = 0;
@@ -179,14 +179,14 @@ document.getElementById("action").children[0].onkeypress = function (e) {
 
 function displayClock() {
 	now = new Date();
-	clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":"
-		+ (now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":"
-		+ (now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
+	clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":" +
+		(now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":" +
+		(now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
 	document.getElementById("clock").innerHTML = clock;
 }
 
 // Self explanatory, straight from StackOverflow
-function getRandomInt(min, max/*, prev, range */) {
+function getRandomInt(min, max /*, prev, range */ ) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	val = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -199,7 +199,7 @@ function getRandomInt(min, max/*, prev, range */) {
 
 // Cycle hue of color palette
 function cycleColor() {
-	new_hue = getRandomInt(10, 360/* , prev_hue, 150 */);
+	new_hue = getRandomInt(10, 360 /* , prev_hue, 150 */ );
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 }
 
