@@ -84,8 +84,8 @@ var sites = {
 };
 
 
-var search = "https://google.com/search";		// The search engine
-var query = "q";							    // The query variable name for the search engine
+var search = "https://google.com/search"; // The search engine
+var query = "q"; // The query variable name for the search engine
 
 var pivotmatch = 0;
 var totallinks = 0;
@@ -143,14 +143,24 @@ function matchLinks(regex = prevregex) {
 		// If any matches in the given category, add to page
 		matches ? p.appendChild(section) : false;
 	}
-	// If no matches at all or blank searchbar, searchbar searches on specified search engine
-	if (isValidURL(regex) && !regex.match(" ")) {
-		if (regex.indexOf('https://') == -1 && regex.indexOf('http://') == -1) {
-			regex = 'https://' + regex;
+	if (regex.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
+		document.getElementById("action").action = "http://localhost:" + regex.match(/\d{1,5}/)[0];
+		document.getElementById("action").children[0].name = "";
+	} else if (!regex.includes(' ')) { // If URL, Ip address, or localhost, go to the specified address
+		replace_https = true;
+		match = false;
+		if (isValidURL(regex)) {
+			match = true;
+		} else if (isLocalhost(regex) || isValidIP(regex)) {
+			replace_https = false;
+			match = true;
+		}
+		if (match && !regex.match(/http(s)?:\/\//g)) {
+			regex = 'http' + (replace_https ? 's' : '') + '://' + regex;
 		}
 		document.getElementById("action").action = regex;
 		document.getElementById("action").children[0].name = "";
-	} else if (!gmatches || regex == "") {
+	} else if (!gmatches || regex == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
 		document.getElementById("action").action = search;
 		document.getElementById("action").children[0].name = query;
 	}
@@ -179,14 +189,14 @@ document.getElementById("action").children[0].onkeypress = function (e) {
 
 function displayClock() {
 	now = new Date();
-	clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":"
-		+ (now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":"
-		+ (now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
+	clock = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":" +
+		(now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":" +
+		(now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
 	document.getElementById("clock").innerHTML = clock;
 }
 
 // Self explanatory, straight from StackOverflow
-function getRandomInt(min, max/*, prev, range */) {
+function getRandomInt(min, max /*, prev, range */ ) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	val = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -199,13 +209,24 @@ function getRandomInt(min, max/*, prev, range */) {
 
 // Cycle hue of color palette
 function cycleColor() {
-	new_hue = getRandomInt(10, 360/* , prev_hue, 150 */);
+	new_hue = getRandomInt(10, 360 /* , prev_hue, 150 */ );
 	document.getElementsByTagName('html')[0].style.setProperty("--base", new_hue);
 }
 
+// Match IP addresses + port with leading zeroes: (\d{1,3}\.){3}(\d{1,2})(:(\d{1,5}))?
+// Match IP addresses + port without leading zeroes: ((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))(:(([1-9]\d{0,4})|0))?
+var port_path = "(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)";
+
+function isLocalhost(string) {
+	return string.match(new RegExp("localhost" + port_path)) != null;
+}
+
+function isValidIP(string) {
+	return string.match(new RegExp("((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))" + port_path)) != null;
+}
+
 function isValidURL(string) {
-	var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-	return res != null;
+	return string.match(new RegExp("(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)")) != null;
 }
 
 window.onload = matchLinks();
