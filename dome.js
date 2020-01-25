@@ -145,10 +145,15 @@ function matchLinks(searchterm = prevsearchterm) {
 	if (searchterm.match(/lh\s*\d{1,5}/)) { // shortcut for localhost
 		setDest("http://localhost:" + searchterm.match(/\d{1,5}/)[0]);
 	} else if (!searchterm.includes(' ') && ((validurl = isValidURL(searchterm)) || (validlh = isLocalhost(searchterm)) || (validip = isValidIP(searchterm)))) { // If URL, Ip address, or localhost, go to the specified address
-		if (!searchterm.match(/http(s)?:\/\//)) {
-			searchterm = 'http' + ((validlh || validip) ? '' : 's') + "://" + searchterm;
+		var added_protocol = !searchterm.match(/http(s)?:\/\//);
+		var http = (validlh || validip);
+		if (added_protocol) {
+			searchterm = 'http' + (http ? '' : 's') + "://" + searchterm;
+			console.log('added ' + 'http' + (http ? '' : 's'));
+			checkAndModify(searchterm, added_protocol, http);
+		} else {
+			setDest(searchterm);
 		}
-		setDest(searchterm);
 	} else if (!gmatches || searchterm == "") { // If no matches at all or blank searchbar, searchbar searches on specified search engine
 		setDest(searchengine, query);
 	}
@@ -160,6 +165,22 @@ function matchLinks(searchterm = prevsearchterm) {
 function setDest(dest, queryvar = "") {
 	document.getElementById("action").action = dest;
 	document.getElementById("action").children[0].name = queryvar;
+}
+
+function checkAndModify(url, added_protocol, http) {
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function () {
+		console.log(this);
+		if (this.readyState > 1) {
+			if (added_protocol && this.status != 200) {
+				url = http ? url.replace('http', 'https') : url.replace('https', 'http');
+				console.log('toggled');
+			}
+			setDest(url);
+		}
+	}
+	xhr.open("HEAD", "https://cors-anywhere.herokuapp.com/" + url);
+	xhr.send();
 }
 
 document.onkeydown = function (e) {
