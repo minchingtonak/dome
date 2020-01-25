@@ -97,11 +97,9 @@ function matchLinks(searchterm = prevsearchterm) {
   pivotbuffer = pivotmatch;
   // Clear links from previous query
   var p = document.getElementById("links");
-  while (p.firstChild) {
-    p.removeChild(p.firstChild);
-  }
-  // match = new RegExp(regex ? regex : ".", "i"); // treats search term as regex
-  var gmatches = false; // kinda ugly, rethink
+  while (p.firstChild) p.removeChild(p.firstChild);
+
+  var gmatches = false;
   // For each category in sites
   for (i = 0; i < Object.keys(sites).length; i++) {
     var matches = false;
@@ -117,7 +115,6 @@ function matchLinks(searchterm = prevsearchterm) {
     for (l = 0; l < Object.keys(sites[sn]).length; l++) {
       var ln = Object.keys(sites[sn])[l]; // ln is the name of each site
       // If query matches part of the site name
-      // if (match.test(ln)) { // treats serach term as regex
       if (
         ln.toLowerCase().includes(searchterm.toLowerCase()) ||
         searchterm.length == 0
@@ -193,9 +190,7 @@ document.onkeydown = function(e) {
 };
 
 document.getElementById("action").children[0].onkeypress = function(e) {
-  if (e.key == "ArrowDown" || e.key == "ArrowUp") {
-    return false;
-  }
+  if (e.keyCode == 38 || e.keyCode == 40) return false;
 };
 
 function displayClock() {
