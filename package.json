@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "test": "./scripts/minify"
+        "test": "./bin/minify"
     }
 }
