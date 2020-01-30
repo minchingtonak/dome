@@ -78,6 +78,16 @@ var sites = {
   }
 };
 
+var alt_names = {
+  "eecs483.org": "compilers",
+  "eecs485.org": "websystems"
+};
+
+function isAltName(site, name) {
+  var s = alt_names[site];
+  return s && s.includes(name);
+}
+
 var searchengine = "https://google.com/search"; // The search engine
 var query = "q"; // The query variable name for the search engine
 
@@ -112,9 +122,11 @@ function matchLinks(searchterm = prevsearchterm) {
     for (var l = 0; l < keys.length; ++l) {
       var ln = keys[l]; // ln is the name of each site
       // If query matches part of the site name
+      var lct = searchterm.toLowerCase();
       if (
-        ln.toLowerCase().includes(searchterm.toLowerCase()) ||
-        searchterm.length == 0
+        !searchterm.length ||
+        ln.toLowerCase().includes(lct) ||
+        isAltName(ln, lct)
       ) {
         // Create a link
         var link = document.createElement("a");
