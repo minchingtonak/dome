@@ -76,17 +76,12 @@ var sites = {
     Amazon: "https://www.amazon.com/",
     rateyourmusic: "https://rateyourmusic.com/"
   }
-  /* "Games": { // To find the game ID check the url in the store page or the community page
-	"CS:GO": "steam://run/730",
-	"POSTAL 2": "steam://run/223470"
-} */
 };
 
 var searchengine = "https://google.com/search"; // The search engine
 var query = "q"; // The query variable name for the search engine
 
-var pivotmatch = 0;
-var totallinks = 0;
+var pivotmatch = 0, totallinks = 0;
 var prevsearchterm = "";
 
 // ---------- BUILD PAGE ----------
@@ -101,9 +96,10 @@ function matchLinks(searchterm = prevsearchterm) {
 
   var gmatches = false;
   // For each category in sites
-  for (i = 0; i < Object.keys(sites).length; i++) {
+  var categories = Object.keys(sites);
+  for (var i = 0; i < categories.length; ++i) {
     var matches = false;
-    var sn = Object.keys(sites)[i]; // sn is the name of each category
+    var sn = categories[i]; // sn is the name of each category
     // Create div to fill
     var section = document.createElement("div");
     section.id = sn;
@@ -112,8 +108,9 @@ function matchLinks(searchterm = prevsearchterm) {
     // Create div to put inside first div
     var inner = document.createElement("div");
     // For each site in the given category
-    for (l = 0; l < Object.keys(sites[sn]).length; l++) {
-      var ln = Object.keys(sites[sn])[l]; // ln is the name of each site
+    var keys = Object.keys(sites[sn]); // ln is the name of each site
+    for (var l = 0; l < keys.length; ++l) {
+      var ln = keys[l]; // ln is the name of each site
       // If query matches part of the site name
       if (
         ln.toLowerCase().includes(searchterm.toLowerCase()) ||
@@ -141,13 +138,13 @@ function matchLinks(searchterm = prevsearchterm) {
     // If any matches in the given category, add to page
     matches ? p.appendChild(section) : false;
   }
-  var validurl, validlh, validip;
+  var validlh, validip;
   if (searchterm.match(/lh\s*\d{1,5}/)) {
     // shortcut for localhost
     setDest("http://localhost:" + searchterm.match(/\d{1,5}/)[0]);
   } else if (
     !searchterm.includes(" ") &&
-    ((validurl = isValidURL(searchterm)) ||
+    (isValidURL(searchterm) ||
       (validlh = isLocalhost(searchterm)) ||
       (validip = isValidIP(searchterm)))
   ) {
