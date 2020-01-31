@@ -79,6 +79,7 @@ var sites = {
 };
 
 var alt_names = {
+  "eecs280.org": "programmingdatastructures",
   "eecs483.org": "compilers",
   "eecs485.org": "websystems"
 };
