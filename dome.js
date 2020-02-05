@@ -30,7 +30,7 @@
 // ---------- CONFIGURATION ----------
 
 // div.innerHTML : {a.innerHTML : a.href}
-var sites = {
+const sites = {
   Watch: {
     Plex: "https://app.plex.tv/desktop",
     Netflix: "https://www.netflix.com/browse",
@@ -78,22 +78,23 @@ var sites = {
   }
 };
 
-var alt_names = {
+const alt_names = {
   "eecs280.org": "programmingdatastructures",
   "eecs483.org": "compilers",
   "eecs485.org": "websystems"
 };
 
 function isAltName(site, name) {
-  var s = alt_names[site];
+  const s = alt_names[site];
   return s && s.includes(name);
 }
 
-var searchengine = "https://google.com/search"; // The search engine
-var query = "q"; // The query variable name for the search engine
+const searchengine = "https://google.com/search"; // The search engine
+const query = "q"; // The query variable name for the search engine
 
-var pivotmatch = 0, totallinks = 0;
-var prevsearchterm = "";
+let pivotmatch = 0,
+  totallinks = 0;
+let prevsearchterm = "";
 
 // ---------- BUILD PAGE ----------
 function matchLinks(searchterm = prevsearchterm) {
@@ -102,35 +103,31 @@ function matchLinks(searchterm = prevsearchterm) {
   prevsearchterm = searchterm;
   pivotbuffer = pivotmatch;
   // Clear links from previous query
-  var p = document.getElementById("links");
+  const p = document.getElementById("links");
   while (p.firstChild) p.removeChild(p.firstChild);
 
-  var gmatches = false;
+  let gmatches = false;
   // For each category in sites
-  var categories = Object.keys(sites);
-  for (var i = 0; i < categories.length; ++i) {
-    var matches = false;
-    var sn = categories[i]; // sn is the name of each category
+  for (const sn of Object.keys(sites)) {
+    let matches = false;
     // Create div to fill
-    var section = document.createElement("div");
+    const section = document.createElement("div");
     section.id = sn;
     section.innerHTML = sn;
     section.className = "section";
     // Create div to put inside first div
-    var inner = document.createElement("div");
+    const inner = document.createElement("div");
     // For each site in the given category
-    var keys = Object.keys(sites[sn]); // ln is the name of each site
-    for (var l = 0; l < keys.length; ++l) {
-      var ln = keys[l]; // ln is the name of each site
+    for (const ln of Object.keys(sites[sn])) {
       // If query matches part of the site name
-      var lct = searchterm.toLowerCase();
+      const lct = searchterm.toLowerCase();
       if (
         !searchterm.length ||
         ln.toLowerCase().includes(lct) ||
         isAltName(ln, lct)
       ) {
         // Create a link
-        var link = document.createElement("a");
+        const link = document.createElement("a");
         link.href = sites[sn][ln];
         link.innerHTML = ln; // link text is name of site
         // Handle up/down arrow keypresses
@@ -151,7 +148,7 @@ function matchLinks(searchterm = prevsearchterm) {
     // If any matches in the given category, add to page
     matches ? p.appendChild(section) : false;
   }
-  var validlh, validip;
+  let validlh, validip;
   if (searchterm.match(/lh\s*\d{1,5}/)) {
     // shortcut for localhost
     setDest("http://localhost:" + searchterm.match(/\d{1,5}/)[0]);
@@ -163,7 +160,7 @@ function matchLinks(searchterm = prevsearchterm) {
   ) {
     // If URL, Ip address, or localhost, go to the specified address
     if (!searchterm.match(/http(s)?:\/\//)) {
-      var http = validlh || validip;
+      let http = validlh || validip;
       if (searchterm.slice(-2) == "!!") {
         http = !http;
         searchterm = searchterm.slice(0, -2);
@@ -204,8 +201,8 @@ document.getElementById("action").children[0].onkeypress = function(e) {
 };
 
 function displayClock() {
-  var now = new Date();
-  var clock =
+  const now = new Date();
+  const clock =
     (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) +
     ":" +
     (now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) +
@@ -215,20 +212,13 @@ function displayClock() {
 }
 
 // Self explanatory, straight from StackOverflow
-function getRandomInt(min, max /*, prev, range */) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  var val = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  // if (val >= prev - range && val <= prev + range) {
-  // 	return getRandomInt(min, max, prev, range);
-  // }
-  return val;
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Cycle hue of color palette
 function cycleColor() {
-  var new_hue = getRandomInt(10, 360 /* , prev_hue, 150 */);
+  const new_hue = getRandomInt(10, 360);
   document.getElementsByTagName("html")[0].style.setProperty("--base", new_hue);
 }
 
