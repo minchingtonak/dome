@@ -108,32 +108,32 @@ function matchLinks(searchterm = prevsearchterm) {
 
   let gmatches = false;
   // For each category in sites
-  for (const sn of Object.keys(sites)) {
+  for (const cat of Object.keys(sites)) {
     let matches = false;
     // Create div to fill
     const section = document.createElement("div");
-    section.id = sn;
-    section.innerHTML = sn;
+    section.id = cat;
+    section.innerHTML = cat;
     section.className = "section";
     // Create div to put inside first div
     const inner = document.createElement("div");
     // For each site in the given category
-    for (const ln of Object.keys(sites[sn])) {
+    for (const site of Object.keys(sites[cat])) {
       // If query matches part of the site name
       const lct = searchterm.toLowerCase();
       if (
         !searchterm.length ||
-        ln.toLowerCase().includes(lct) ||
-        isAltName(ln, lct)
+        site.toLowerCase().includes(lct) ||
+        isAltName(site, lct)
       ) {
         // Create a link
         const link = document.createElement("a");
-        link.href = sites[sn][ln];
-        link.innerHTML = ln; // link text is name of site
+        link.href = sites[cat][site];
+        link.innerHTML = site; // link text is name of site
         // Handle up/down arrow keypresses
         if (!pivotbuffer++ && searchterm != "") {
           link.className = "selected";
-          document.getElementById("action").action = sites[sn][ln];
+          document.getElementById("action").action = sites[cat][site];
           document.getElementById("action").children[0].removeAttribute("name");
         }
         // Add link to inner div
