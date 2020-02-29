@@ -108,17 +108,17 @@ function matchLinks(searchterm = prevsearchterm) {
 
   let gmatches = false;
   // For each category in sites
-  for (const cat of Object.keys(sites)) {
+  Object.keys(sites).forEach((categ) => {
     let matches = false;
     // Create div to fill
     const section = document.createElement('div');
-    section.id = cat;
-    section.innerHTML = cat;
+    section.id = categ;
+    section.innerHTML = categ;
     section.className = 'section';
     // Create div to put inside first div
     const inner = document.createElement('div');
     // For each site in the given category
-    for (const site of Object.keys(sites[cat])) {
+    Object.keys(sites[categ]).forEach((site) => {
       // If query matches part of the site name
       const lct = searchterm.toLowerCase();
       if (
@@ -128,12 +128,12 @@ function matchLinks(searchterm = prevsearchterm) {
       ) {
         // Create a link
         const link = document.createElement('a');
-        link.href = sites[cat][site];
+        link.href = sites[categ][site];
         link.innerHTML = site; // link text is name of site
         // Handle up/down arrow keypresses
         if (!pivotbuffer++ && searchterm != '') {
           link.className = 'selected';
-          document.getElementById('action').action = sites[cat][site];
+          document.getElementById('action').action = sites[categ][site];
           document.getElementById('action').children[0].removeAttribute('name');
         }
         // Add link to inner div
@@ -142,12 +142,13 @@ function matchLinks(searchterm = prevsearchterm) {
         gmatches = true;
         totallinks++;
       }
-    }
+    });
     // Add inner div to outer div
     section.appendChild(inner);
     // If any matches in the given category, add to page
     matches ? p.appendChild(section) : false;
-  }
+  });
+
   let validlh, validip;
   if (searchterm.match(/lh\s*\d{1,5}/)) {
     // shortcut for localhost
