@@ -186,10 +186,10 @@ function setDest(dest, queryvar = '') {
 
 document.onkeydown = function(e) {
   // If up/down arrow pressed switch selected accordingly
-  if (e.keyCode == 37 || e.keyCode == 38) {
+  if (e.key === "ArrowUp" || e.key === "ArrowRight") {
     pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
     matchLinks();
-  } else if (e.keyCode == 39 || e.keyCode == 40) {
+  } else if (e.key === "ArrowDown" || e.key === "ArrowLeft") {
     pivotmatch =
       pivotmatch <= -totallinks + 1 ? -totallinks + 1 : pivotmatch - 1;
     matchLinks();
@@ -198,7 +198,7 @@ document.onkeydown = function(e) {
 };
 
 document.getElementById('action').children[0].onkeypress = function(e) {
-  if (e.keyCode == 38 || e.keyCode == 40) return false;
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') return false;
 };
 
 function displayClock() {
