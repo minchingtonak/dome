@@ -186,10 +186,10 @@ function setDest(dest, queryvar = '') {
 
 document.onkeydown = function(e) {
   // If up/down arrow pressed switch selected accordingly
-  if (e.key === "ArrowUp" || e.key === "ArrowRight") {
+  if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
     pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
     matchLinks();
-  } else if (e.key === "ArrowDown" || e.key === "ArrowLeft") {
+  } else if (e.key === "ArrowDown" || e.key === "ArrowRight") {
     pivotmatch =
       pivotmatch <= -totallinks + 1 ? -totallinks + 1 : pivotmatch - 1;
     matchLinks();
