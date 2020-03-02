@@ -99,7 +99,7 @@ let prevsearchterm = '';
 // ---------- BUILD PAGE ----------
 function matchLinks(searchterm = prevsearchterm) {
   totallinks = 0;
-  pivotmatch = searchterm == prevsearchterm ? pivotmatch : 0;
+  pivotmatch = searchterm === prevsearchterm ? pivotmatch : 0;
   prevsearchterm = searchterm;
   pivotbuffer = pivotmatch;
   // Clear links from previous query
@@ -131,7 +131,7 @@ function matchLinks(searchterm = prevsearchterm) {
         link.href = sites[categ][site];
         link.innerHTML = site; // link text is name of site
         // Handle up/down arrow keypresses
-        if (!pivotbuffer++ && searchterm != '') {
+        if (!pivotbuffer++ && searchterm !== '') {
           link.className = 'selected';
           document.getElementById('action').action = sites[categ][site];
           document.getElementById('action').children[0].removeAttribute('name');
@@ -162,14 +162,14 @@ function matchLinks(searchterm = prevsearchterm) {
     // If URL, Ip address, or localhost, go to the specified address
     if (!searchterm.match(/http(s)?:\/\//)) {
       let http = validlh || validip;
-      if (searchterm.slice(-2) == '!!') {
+      if (searchterm.slice(-2) === '!!') {
         http = !http;
         searchterm = searchterm.slice(0, -2);
       }
       searchterm = 'http' + (http ? '' : 's') + '://' + searchterm;
     }
     setDest(searchterm);
-  } else if (!gmatches || searchterm == '') {
+  } else if (!gmatches || searchterm === '') {
     // If no matches at all or blank searchbar, searchbar searches on specified search engine
     setDest(searchengine, query);
   }
@@ -227,7 +227,7 @@ function isLocalhost(string) {
   return (
     string.match(
       /localhost(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-    ) != null
+    ) !== null
   );
 }
 
@@ -235,7 +235,7 @@ function isValidIP(string) {
   return (
     string.match(
       /((([1-9]\d{0,2})|0)\.){3}((([1-9]\d{0,2})|0))(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-    ) != null
+    ) !== null
   );
 }
 
@@ -243,7 +243,7 @@ function isValidURL(string) {
   return (
     string.match(
       /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-    ) != null
+    ) !== null
   );
 }
 
