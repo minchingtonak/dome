@@ -185,11 +185,16 @@ function setDest(dest, queryvar = '') {
 }
 
 document.onkeydown = function(e) {
+  const form = document.getElementById('action');
+  (e.ctrlKey || e.shiftKey) && e.key === 'Enter'
+    ? form.setAttribute('target', '_blank')
+    : form.removeAttribute('target');
+
   // If up/down arrow pressed switch selected accordingly
-  if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+  if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
     pivotmatch = pivotmatch >= 0 ? 0 : pivotmatch + 1;
     matchLinks();
-  } else if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+  } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
     pivotmatch =
       pivotmatch <= -totallinks + 1 ? -totallinks + 1 : pivotmatch - 1;
     matchLinks();
