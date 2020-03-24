@@ -63,7 +63,7 @@ const sites = {
   },
   Productivity: {
     Keep: 'https://keep.google.com',
-    Drive: 'https://drive.google.com/drive/u/2/my-drive',
+    Drive: 'https://drive.google.com/drive/u/0/my-drive',
     Calendar: 'https://calendar.google.com',
     akminch: 'https://mail.google.com/mail/u/2/',
     'alec.minch': 'https://mail.google.com/mail/u/0/',
