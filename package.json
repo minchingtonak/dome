@@ -1,5 +1,8 @@
 {
   "scripts": {
     "test": "./bin/minify"
+  },
+  "prettier": {
+    "printWidth": 100
   }
 }
