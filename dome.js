@@ -32,6 +32,7 @@
 // div.innerHTML : {a.innerHTML : a.href}
 const sites = {
   Watch: {
+    VRV: 'https://vrv.co/',
     Plex: 'https://app.plex.tv/desktop',
     Netflix: 'https://www.netflix.com/browse',
     Twitch: 'https://www.twitch.tv',
@@ -40,8 +41,6 @@ const sites = {
   Uni: {
     Canvas: 'https://umich.instructure.com/login',
     'EECS Gitlab': 'https://gitlab.eecs.umich.edu/',
-    'eecs483.org': 'https://piazza.com/umich/winter2020/eecs483/resources',
-    'eecs485.org': 'https://eecs485staff.github.io/eecs485.org/',
     Gradescope: 'https://www.gradescope.com/',
     'Wolverine Access': 'https://wolverineaccess.umich.edu',
   },
@@ -49,10 +48,8 @@ const sites = {
     Piazza: 'https://piazza.com/class',
     MPrint: 'https://mprint.umich.edu/',
     'OH Queue': 'https://lobster.eecs.umich.edu/eecsoh/',
-    'Drive (280)':
-      'https://drive.google.com/drive/u/2/folders/1_AXJpe9W2qovqr68-KjcnyYMjukmykK5',
     Autograder: 'https://autograder.io',
-    'eecs280.org': 'https://eecs280staff.github.io/eecs280.org/',
+    'eecs485.org': 'https://eecs485staff.github.io/eecs485.org/',
   },
   Social: {
     Reddit: 'https://www.reddit.com/',
@@ -79,9 +76,6 @@ const sites = {
 };
 
 const alt_names = {
-  'eecs280.org': 'programmingdatastructures',
-  'eecs483.org': 'compilers',
-  'eecs485.org': 'websystems',
 };
 
 function isAltName(site, name) {
