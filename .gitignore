@@ -1,1 +1,4 @@
 minified/
+.vscode/
+env/
+node_modules/
