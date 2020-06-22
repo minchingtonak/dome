@@ -72,10 +72,14 @@ const sites = {
     "Last.fm": "https://last.fm/user/Slarrty",
     Amazon: "https://www.amazon.com/",
     rateyourmusic: "https://rateyourmusic.com/",
+    "Google Analytics":
+      "https://analytics.google.com/analytics/web/?authuser=0#/home/a170303704w237146009p221847832/",
   },
 };
 
-const alt_names = {};
+const alt_names = {
+  "eecs485.org": "websystems"
+};
 
 function isAltName(site, name) {
   const s = alt_names[site];
