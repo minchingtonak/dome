@@ -2,8 +2,8 @@
   "name": "dome",
   "version": "1.0.0",
   "scripts": {
-    "test": "npm run build && ./bin/minify",
-    "test-server": "npm run build && ./bin/test",
+    "deploy": "npm run build && ./bin/minify",
+    "test": "npm run build && ./bin/test",
     "build": "npx webpack --config webpack.config.js",
     "watch": "npx webpack --mode=development --watch --config webpack.config.js"
   },
