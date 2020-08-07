@@ -27,10 +27,6 @@
 
 // "Thus, programs must be written for people to read, and only incidentally for machines to execute."
 
-// ---------- OFFLINE MODE ----------
-import { register } from "./serviceWorker";
-register();
-
 // ---------- CONFIGURATION ----------
 
 // div.innerHTML : {a.innerHTML : a.href}
