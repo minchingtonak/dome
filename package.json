@@ -1,4 +1,6 @@
 {
+  "name": "dome",
+  "version": "1.0.0",
   "scripts": {
     "test": "npm run build && ./bin/minify",
     "test-server": "npm run build && ./bin/test",
