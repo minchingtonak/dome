@@ -27,6 +27,10 @@
 
 // "Thus, programs must be written for people to read, and only incidentally for machines to execute."
 
+// ---------- OFFLINE MODE ----------
+import { register } from "./serviceWorker";
+register();
+
 // ---------- CONFIGURATION ----------
 
 // div.innerHTML : {a.innerHTML : a.href}
@@ -78,7 +82,7 @@ const sites = {
 };
 
 const alt_names = {
-  "eecs485.org": "websystems"
+  "eecs485.org": "websystems",
 };
 
 function isAltName(site, name) {
@@ -90,11 +94,12 @@ const searchengine = "https://google.com/search"; // The search engine
 const query = "q"; // The query variable name for the search engine
 
 let pivotmatch = 0,
+  pivotbuffer = 0,
   totallinks = 0;
 let prevsearchterm = "";
 
 // ---------- BUILD PAGE ----------
-function matchLinks(searchterm = prevsearchterm) {
+export function matchLinks(searchterm = prevsearchterm) {
   totallinks = 0;
   pivotmatch = searchterm === prevsearchterm ? pivotmatch : 0;
   prevsearchterm = searchterm;
@@ -149,7 +154,7 @@ function matchLinks(searchterm = prevsearchterm) {
   } else if (
     !searchterm.includes(" ") &&
     (isValidURL(searchterm) ||
-      (validlh = isLocalhost(searchterm)) ||
+      (validlh = isLocalhostAddress(searchterm)) ||
       (validip = isValidIP(searchterm)))
   ) {
     // If URL, Ip address, or localhost, go to the specified address
@@ -220,7 +225,7 @@ function cycleColor() {
   document.getElementsByTagName("html")[0].style.setProperty("--base", new_hue);
 }
 
-function isLocalhost(string) {
+function isLocalhostAddress(string) {
   return string.match(/localhost(:(([1-9]\d{0,4})|0))?([-a-zA-Z0-9@:%_\+.~#?&//=]*)/) !== null;
 }
 

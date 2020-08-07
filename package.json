@@ -1,14 +1,24 @@
 {
   "scripts": {
-    "test": "./bin/minify"
+    "test": "npm run build && ./bin/minify",
+    "test-server": "npm run build && ./bin/test",
+    "build": "npx webpack --config webpack.config.js",
+    "watch": "npx webpack --mode=development --watch --config webpack.config.js"
   },
   "prettier": {
     "printWidth": 100
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
     "csso-cli": "^3.0.0",
     "html-minifier": "^4.0.0",
     "sass": "^1.25.0",
-    "uglify-es": "github:mishoo/UglifyJS2#harmony"
-  }
+    "terser-webpack-plugin": "^4.0.0",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {}
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="dome.js" defer></script>
+    <script src="static/lib.js" defer></script>
 
     <style type="text/css">
       :root {
@@ -48,7 +48,7 @@
     </style>
   </head>
 
-  <body onresize="matchLinks()" onunload="" style="position: relative;">
+<body onresize="Dome.matchLinks()" onunload="" style="position: relative;">
     <div id="wiper"></div>
 
     <div id="main" style="max-width: 912px;">
@@ -64,7 +64,7 @@
         <form method="GET" id="action">
           <input
             type="text"
-            oninput="matchLinks(this.value)"
+            oninput="Dome.matchLinks(this.value)"
             autofocus
             autocomplete="off"
           />
