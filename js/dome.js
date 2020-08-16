@@ -155,14 +155,14 @@ export function matchLinks(searchterm = prevsearchterm) {
   ) {
     // If URL, Ip address, or localhost, go to the specified address
     if (!searchterm.match(/http(s)?:\/\//)) {
-      let http = validlh || validip;
-      if (searchterm.slice(-2) === "!!") {
-        http = !http;
-        searchterm = searchterm.slice(0, -2);
-      }
-      searchterm = "http" + (http ? "" : "s") + "://" + searchterm;
+      // Try getting response from domain at https, if that fails then navigate to http
+      fetch(`https://cors-anywhere.herokuapp.com/https://${searchterm}`, { mode: "cors" }).then(
+        (response) => {
+          if (response.status === 200) setDest(`https://${searchterm}`);
+          else setDest(`http://${searchterm}`);
+        }
+      );
     }
-    setDest(searchterm);
   } else if (!gmatches || searchterm === "") {
     // If no matches at all or blank searchbar, searchbar searches on specified search engine
     setDest(searchengine, query);
