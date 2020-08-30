@@ -6,7 +6,7 @@ branches:
   - master
 before_install:
   - npm i -g
-script: npm run deploy
+script: npm run build
 deploy:
   provider: pages
   skip_cleanup: true
@@ -15,6 +15,6 @@ deploy:
   fqdn: start.alecminch.dev
   committer_from_gh: true
   verbose: true
-  local_dir: minified
+  local_dir: build
   on:
     branch: master
