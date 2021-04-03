@@ -122,7 +122,8 @@
       Productivity: {
         Keep: "https://keep.google.com",
         Drive: "https://drive.google.com/drive/u/0/my-drive",
-        Notion: "https://www.notion.so/a377b4c5db9d454f845c9b41831d8058?v=7d97a40af52245a1a2e2dd6088a29141",
+        Notion:
+          "https://www.notion.so/a377b4c5db9d454f845c9b41831d8058?v=7d97a40af52245a1a2e2dd6088a29141",
         Calendar: "https://calendar.google.com",
         akminch: "https://mail.google.com/mail/u/2/",
         "alec.minch": "https://mail.google.com/mail/u/0/",
@@ -156,8 +157,26 @@
       totallinks = 0;
     let prevsearchterm = "";
 
+    let search_title = false;
+
+    window.addEventListener("blur", (_) => {
+      if (search_title) document.title = "📝" + document.title.substr(document.title.search(" .*"));
+    });
+
+    window.addEventListener("focus", (_) => {
+      if (search_title) document.title = "🔍" + document.title.substr(document.title.search(" .*"));
+    });
+
     // ---------- BUILD PAGE ----------
     function matchLinks(searchterm = prevsearchterm) {
+      if (searchterm !== "") {
+        document.title = `🔍 - ${searchterm}`;
+        search_title = true;
+      } else {
+        document.title = "🏠 Home";
+        search_title = false;
+      }
+
       totallinks = 0;
       pivotmatch = searchterm === prevsearchterm ? pivotmatch : 0;
       prevsearchterm = searchterm;
